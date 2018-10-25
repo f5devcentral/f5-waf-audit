@@ -191,7 +191,7 @@ if (substr( $bigip_version, 0, 4 ) !== "13.1")
 /*******	Enforcement mode - START	 *****/
 
 $enforcement = (string)$arr->blocking->enforcement_mode;
-if ($enforcement=="blocking")
+if ($enforcement !== "blocking")
 {
 	$score = 100;
 	$analysis .='{"category":"Configuration", "name":"100", "msg": "The policy ('.$asm_policy.') is in Staging mode. Therefore ASM protection is off. Please review the policy", "severity":"error"},';
